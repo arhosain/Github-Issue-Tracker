@@ -1,33 +1,32 @@
+let currentStatus = 'all';
 const loadIssues = event => {
+
+  currentStatus = 'all';
   removeActive();
   event.target.classList.add('btn-primary');
 
-  // modal 
+  // modal
 
   // show loader
   document.getElementById('loader').classList.remove('hidden');
-
-
 
   const url = 'https://phi-lab-server.vercel.app/api/v1/lab/issues';
   fetch(url)
     .then(res => res.json())
     .then(json => {
-      
       // hide loader
-      document.getElementById("loader").classList.add("hidden");
+      document.getElementById('loader').classList.add('hidden');
 
-      
-      
-      
-      displayIssues(json.data)
+      displayIssues(json.data);
     });
 };
-
 
 // search
 
 const searchIssues = () => {
+
+    document.getElementById('loader').classList.remove('hidden');
+
   const text = document.getElementById('searchInput').value;
 
   const url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${text}`;
@@ -35,49 +34,61 @@ const searchIssues = () => {
   fetch(url)
     .then(res => res.json())
     .then(data => {
-      displayIssues(data.data);
+ 
+
+      // load 
+       document.getElementById('loader').classList.add('hidden');
+      // displayIssues(data.data);
+      
+      let results = data.data;
+
+      if (currentStatus !== 'all') {
+        results = results.filter(issue => issue.status === currentStatus);
+      }
+
+      displayIssues(results);
+
     });
 };
 
-
-
-
-// open and close tab 
+// open and close tab
 
 const loadIssuesByStatus = (status, event) => {
+  currentStatus = status;
 
-   removeActive();
-   event.target.classList.add('btn-primary');
+  removeActive();
+  event.target.classList.add('btn-primary');
 
+    document.getElementById('loader').classList.remove('hidden');
 
 
   const url = 'https://phi-lab-server.vercel.app/api/v1/lab/issues';
   fetch(url)
     .then(res => res.json())
     .then(data => {
+
+            document.getElementById('loader').classList.add('hidden');
+
+
+
+
       const filtered = data.data.filter(issue => issue.status === status);
 
       displayIssues(filtered);
     });
 };
 
-
-// active class remover 
+// active class remover
 
 const removeActive = () => {
-  const btnTab = document.querySelectorAll(".active")
+  const btnTab = document.querySelectorAll('.active');
 
   btnTab.forEach(btn => {
-    btn.classList.remove('btn-primary','btn-outline');
-  })
-}
+    btn.classList.remove('btn-primary', 'btn-outline');
+  });
+};
 
-
-
-
-
-
-// modal 
+// modal
 
 const loadIssueDetails = id => {
   const url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`;
@@ -86,7 +97,6 @@ const loadIssueDetails = id => {
     .then(res => res.json())
     .then(data => displayIssueModal(data.data));
 };
-
 
 const displayIssueModal = issue => {
   document.getElementById('modal-title').innerText = issue.title;
@@ -104,21 +114,19 @@ const displayIssueModal = issue => {
 
   document.getElementById('modal-priority').innerText = issue.priority;
 
-  // label new 
+  // label new
 
-const label1 = document.getElementById('label-status-1');
-const label2 = document.getElementById('label-status-2');
+  const label1 = document.getElementById('label-status-1');
+  const label2 = document.getElementById('label-status-2');
 
-label1.innerText = issue.labels[0];
+  label1.innerText = issue.labels[0];
 
-if (issue.labels[1]) {
-  label2.innerText = issue.labels[1];
-  label2.classList.remove('hidden');
-} else {
-  label2.classList.add('hidden');
-}
-  
- 
+  if (issue.labels[1]) {
+    label2.innerText = issue.labels[1];
+    label2.classList.remove('hidden');
+  } else {
+    label2.classList.add('hidden');
+  }
 
   // labels
   // const labelsContainer = document.getElementById('modal-labels');
@@ -138,30 +146,22 @@ if (issue.labels[1]) {
   document.getElementById('issue_modal').showModal();
 };
 
-
-
-
-const displayIssues = (issues) => {
-  // 1. get the container and empty 
+const displayIssues = issues => {
+  // 1. get the container and empty
 
   const levelContainer = document.getElementById('level-container');
-levelContainer.innerHTML =""
+  levelContainer.innerHTML = '';
 
-  // length of issues 
+  // length of issues
   document.getElementById('card-length').innerText = issues.length;
 
-  
-  
-  
   //2.  get into every issue
- 
+
   issues.forEach(issue => {
-    
     // a. create element
-    const btnDiv = document.createElement("div")
-    const borderColor = issue.status === "open"
-? "border-green-600"
-      : "border-purple-600";
+    const btnDiv = document.createElement('div');
+    const borderColor =
+      issue.status === 'open' ? 'border-green-600' : 'border-purple-600';
     const helpWantedHidden = issue.labels[1] ? '' : 'hidden';
     btnDiv.innerHTML = `
     <div onclick="loadIssueDetails(${issue.id})" class=" issue-card shadow-lg cursor-pointer  border-t-4 rounded-xl ${borderColor}">
@@ -186,12 +186,9 @@ levelContainer.innerHTML =""
   </div> 
     `;
     // b. append into container
-    levelContainer.append(btnDiv)
-  })
-
-  
-}
-
+    levelContainer.append(btnDiv);
+  });
+};
 
 // document.getElementById('all-btn').click();
 window.addEventListener('DOMContentLoaded', () => {
