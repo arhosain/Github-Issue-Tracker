@@ -25,6 +25,23 @@ const loadIssues = event => {
 };
 
 
+// search
+
+const searchIssues = () => {
+  const text = document.getElementById('searchInput').value;
+
+  const url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${text}`;
+
+  fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      displayIssues(data.data);
+    });
+};
+
+
+
+
 // open and close tab 
 
 const loadIssuesByStatus = (status, event) => {
@@ -84,21 +101,23 @@ const displayIssueModal = issue => {
 
   // label new 
 
+  document.getElementById('label-status-1').innerText = issue.labels[0];
+  document.getElementById('label-status-2').innerText = issue.labels[1];
 
 
   // labels
-  const labelsContainer = document.getElementById('modal-labels');
-  labelsContainer.innerHTML = '';
+  // const labelsContainer = document.getElementById('modal-labels');
+  // labelsContainer.innerHTML = '';
 
-  issue.labels.forEach(label => {
-    const span = document.createElement('span');
+  // issue.labels.forEach(label => {
+  //   const span = document.createElement('span');
 
-    span.className = 'px-3 py-1 bg-red-200 rounded-full text-sm';
+  //   span.className = 'px-3 py-1 bg-red-200 rounded-full text-sm';
 
-    span.innerText = label;
+  //   span.innerText = label;
 
-    labelsContainer.appendChild(span);
-  });
+  //   labelsContainer.appendChild(span);
+  // });
 
   // open modal
   document.getElementById('issue_modal').showModal();
