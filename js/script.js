@@ -72,6 +72,11 @@ const removeActive = () => {
   })
 }
 
+
+
+
+
+
 // modal 
 
 const loadIssueDetails = id => {
@@ -101,9 +106,19 @@ const displayIssueModal = issue => {
 
   // label new 
 
-  document.getElementById('label-status-1').innerText = issue.labels[0];
-  document.getElementById('label-status-2').innerText = issue.labels[1];
+const label1 = document.getElementById('label-status-1');
+const label2 = document.getElementById('label-status-2');
 
+label1.innerText = issue.labels[0];
+
+if (issue.labels[1]) {
+  label2.innerText = issue.labels[1];
+  label2.classList.remove('hidden');
+} else {
+  label2.classList.add('hidden');
+}
+  
+ 
 
   // labels
   // const labelsContainer = document.getElementById('modal-labels');
@@ -132,6 +147,12 @@ const displayIssues = (issues) => {
   const levelContainer = document.getElementById('level-container');
 levelContainer.innerHTML =""
 
+  // length of issues 
+  document.getElementById('card-length').innerText = issues.length;
+
+  
+  
+  
   //2.  get into every issue
  
   issues.forEach(issue => {
@@ -140,7 +161,8 @@ levelContainer.innerHTML =""
     const btnDiv = document.createElement("div")
     const borderColor = issue.status === "open"
 ? "border-green-600"
-: "border-purple-600";
+      : "border-purple-600";
+    const helpWantedHidden = issue.labels[1] ? '' : 'hidden';
     btnDiv.innerHTML = `
     <div onclick="loadIssueDetails(${issue.id})" class=" issue-card shadow-lg cursor-pointer  border-t-4 rounded-xl ${borderColor}">
 <div class="p-4 space-y-3 ">
@@ -152,7 +174,7 @@ levelContainer.innerHTML =""
     <p class="text-gray-500">${issue.description}</p>
     <div class="flex gap-3">
       <button class="border border-red-300 bg-red-100 px-3 py-1.5 rounded-3xl text-red-500 text-[11px] whitespace-nowrap"><i class="fa-solid fa-bug"></i> ${issue.labels[0]}</button>
-      <button class=" border border-green-400 bg-green-100 px-3 py-1.5 rounded-3xl text-green-600 text-[11px]"><i class="fa-solid fa-life-ring"></i> ${issue.labels[1]}</button>
+      <button class=" border border-green-400 bg-green-100 px-3 py-1.5 rounded-3xl text-green-600 text-[11px] ${helpWantedHidden}"><i class="fa-solid fa-life-ring"></i> ${issue.labels[1]}</button>
     </div>
 </div>
    
@@ -170,4 +192,9 @@ levelContainer.innerHTML =""
   
 }
 
-loadIssues()
+
+// document.getElementById('all-btn').click();
+window.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('all-tab').click();
+});
+// loadIssues()
