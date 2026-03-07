@@ -3,11 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<!-- google font geist  -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+
+
+
   <title>Github-Issue-Tracker
 </title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<!--tailwind + daisy ui  -->
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<!-- font awesome  cdn -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+  integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
 </head>
 <body>
-  <h1>hello for testing</h1>
-  
+  <header>
+    <nav class="bg-base-100 shadow-sm">
+      <div class="navbar  max-w-10/11 mx-auto">
+        <div class="flex-1 ">
+          <a class="btn btn-ghost text-xl">daisyUI</a>
+        </div>
+        <div class="flex gap-2 ">
+          <input type="text" placeholder="🔍 Search issues..." class="input input-bordered w-24 md:w-auto" />
+          <div>
+            <button class="btn btn-primary">+ New Issue</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <script src="js/script.js"></script>
 </body>
 </html>
