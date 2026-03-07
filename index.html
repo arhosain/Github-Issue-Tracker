@@ -34,7 +34,7 @@
     <nav class="bg-base-100 shadow-sm">
       <div class="navbar  max-w-10/11 mx-auto">
         <div class="flex-1 ">
-          <a class="btn btn-ghost text-xl">daisyUI</a>
+          <a class="btn btn-ghost text-xl"><i class="fa-brands fa-github text-3xl"></i> GitHub Issues Tracker</a>
         </div>
         <div class="flex gap-2 ">
           <input type="text" placeholder="🔍 Search issues..." class="input input-bordered w-24 md:w-auto" />
@@ -46,6 +46,113 @@
     </nav>
   </header>
 
+  <main class="max-w-[1300px] mx-auto p-2">
+
+
+
+    
+
+
+
+    <section class="tabs shadow-lg mt-10 p-5 border flex gap-3">
+      <button onclick="loadIssues(event)" class="btn btn-outline  w-30 active ">All</button>
+      
+      <button onclick="loadIssuesByStatus('open', event)" class="btn btn-outline w-30 active">Open</button>
+
+      <button onclick="loadIssuesByStatus('closed', event)" class="btn btn-outline w-30 active">Closed</button>
+
+    </section>
+
+
+    <!-- spinner  -->
+    <div id="loader" class="text-center mt-1 hidden">
+      <span class="loading loading-spinner text-primary"></span>
+    </div>
+
+    <section id="level-container" class="shadow-lg mt-10 p-6 border grid grid-cols-1 lg:grid-cols-4 gap-4"  >
+      
+    </section>
+
+  </main>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- modal  -->
+<!-- <dialog id="issueModal" class="modal">
+  <div class="modal-box">
+    <h3 id="modalTitle" class="font-bold text-lg"></h3>
+    <p id="modalDescription" class="py-4"></p>
+
+    <div class="modal-action">
+      <form method="dialog">
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog> -->
+
+
+<dialog id="issue_modal" class="modal">
+  <div class="modal-box space-y-5">
+
+    <h3 id="modal-title" class="text-xl font-bold"></h3>
+   
+    <div class="flex gap-2">
+      <p id="modal-status" class="px-2 bg-green-600 rounded-2xl text-white" >
+        
+      </p>
+      
+      <p class="text-gray-500"><span class="font-semibold">● Open by </span>
+        <span id="modal-author"></span>
+      </p>
+      
+      <p class="text-gray-500"><span class="font-semibold">● </span>
+        <span id="modal-date"></span>
+      </p>
+    </div>
+
+    <div class="labels-status flex gap-2">
+      <button id="label-status-1" class="bg-red-100 border rounded-3xl border-red-300 text-red-500 px-2 ">laalala</button>
+      <button id="label-status-2" class="bg-green-100 border rounded-3xl border-green-300 text-green-600 px-2 ">laalala</button>
+    </div>
+    <div> 
+  <div id="modal-labels"  class="flex gap-2 mt-1 flex-wrap  "></div>
+    </div>
+
+    <p id="modal-description">
+      
+    </p>
+
+    <div class="flex gap-20 border p-3 bg-blue-50">
+      <div class="">
+        <p class="font-semibold">Assignee:</p>
+        <p id="modal-assignee"></p>
+      </div>
+      
+      <div>
+        <p class="font-semibold">Priority:</p>
+        <p id="modal-priority"></p>
+      </div>
+    </div>
+
+    <div class="modal-action">
+      <form method="dialog">
+        <button class="btn">Close</button>
+      </form>
+    </div>
+
+  </div>
+</dialog>
 
   <script src="js/script.js"></script>
 </body>
