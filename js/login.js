@@ -30,7 +30,7 @@ document.getElementById('login-btn').addEventListener('click', function () {
 
   if (userName === 'admin' && passWord === 'admin123') {
     sessionStorage.setItem('loggedIn', 'true');
-    window.location.replace('index.html');
+    window.location.assign('index.html');
   } else {
     alert('please try again');
   }
