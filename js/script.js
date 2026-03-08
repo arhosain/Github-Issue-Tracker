@@ -1,6 +1,12 @@
+if (
+  !localStorage.getItem('loggedIn') &&
+  !window.location.pathname.includes('login.html')
+) {
+  window.location.href = 'login.html';
+}
+
 let currentStatus = 'all';
 const loadIssues = event => {
-
   currentStatus = 'all';
   removeActive();
   event.target.classList.add('btn-primary');
@@ -24,8 +30,7 @@ const loadIssues = event => {
 // search
 
 const searchIssues = () => {
-
-    document.getElementById('loader').classList.remove('hidden');
+  document.getElementById('loader').classList.remove('hidden');
 
   const text = document.getElementById('searchInput').value;
 
@@ -34,12 +39,10 @@ const searchIssues = () => {
   fetch(url)
     .then(res => res.json())
     .then(data => {
- 
-
-      // load 
-       document.getElementById('loader').classList.add('hidden');
+      // load
+      document.getElementById('loader').classList.add('hidden');
       // displayIssues(data.data);
-      
+
       let results = data.data;
 
       if (currentStatus !== 'all') {
@@ -47,7 +50,6 @@ const searchIssues = () => {
       }
 
       displayIssues(results);
-
     });
 };
 
@@ -59,18 +61,13 @@ const loadIssuesByStatus = (status, event) => {
   removeActive();
   event.target.classList.add('btn-primary');
 
-    document.getElementById('loader').classList.remove('hidden');
-
+  document.getElementById('loader').classList.remove('hidden');
 
   const url = 'https://phi-lab-server.vercel.app/api/v1/lab/issues';
   fetch(url)
     .then(res => res.json())
     .then(data => {
-
-            document.getElementById('loader').classList.add('hidden');
-
-
-
+      document.getElementById('loader').classList.add('hidden');
 
       const filtered = data.data.filter(issue => issue.status === status);
 
@@ -113,28 +110,22 @@ const displayIssueModal = issue => {
     issue.assignee || 'Not assigned';
 
   document.getElementById('modal-priority').innerText = issue.priority;
-  
 
+  const priorityElement = document.getElementById('modal-priority');
 
-const priorityElement = document.getElementById('modal-priority');
-
-const priorityColor = 
-  issue.priority === 'high'
-    ? 'bg-red-600'
-    : issue.priority === 'medium'
-      ? 'bg-yellow-500'
-      : 'bg-gray-400';
+  const priorityColor =
+    issue.priority === 'high'
+      ? 'bg-red-600'
+      : issue.priority === 'medium'
+        ? 'bg-yellow-500'
+        : 'bg-gray-400';
 
   priorityElement.classList.remove(
     'bg-red-600',
     'bg-yellow-500',
     'bg-gray-400',
   );
-priorityElement.classList.add(priorityColor);
-
-
-
-
+  priorityElement.classList.add(priorityColor);
 
   // label new
 
@@ -184,21 +175,15 @@ const displayIssues = issues => {
     const btnDiv = document.createElement('div');
     const borderColor =
       issue.status === 'open' ? 'border-green-600' : 'border-purple-600';
-    const bgColor =
-      issue.status === 'open' ? 'bg-green-300' : 'bg-purple-300';
-    
-    
-   const priorityColor =
-     issue.priority === 'high'
-       ? 'red'
-       : issue.priority === 'medium'
-         ? 'yellow'
-         : 'gray'; 
-  
-    
-    
-    
-    
+    const bgColor = issue.status === 'open' ? 'bg-green-300' : 'bg-purple-300';
+
+    const priorityColor =
+      issue.priority === 'high'
+        ? 'red'
+        : issue.priority === 'medium'
+          ? 'yellow'
+          : 'gray';
+
     const helpWantedHidden = issue.labels[1] ? '' : 'hidden';
     btnDiv.innerHTML = `
     <div onclick="loadIssueDetails(${issue.id})" class=" issue-card shadow-lg cursor-pointer  border-t-4 rounded-xl ${borderColor}">
@@ -233,41 +218,28 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 // loadIssues()
 
-
-
-
-
-
-
 // login page  ====================================
 
-document.getElementById('login-btn').addEventListener("click", function () {
-  
-  // 1. get the username input 
+document.getElementById('login-btn').addEventListener('click', function () {
+  // 1. get the username input
   const userInput = document.getElementById('input-username');
   const userName = userInput.value;
-  console.log(userName)
+  console.log(userName);
 
   // 2. get the password
-  const passInput = document.getElementById("input-pass")
+  const passInput = document.getElementById('input-pass');
 
   const passWord = passInput.value;
-  console.log(passWord)
+  console.log(passWord);
   // 3. match password and password
-  if (userName === "admin" && passWord === "admin123") {
-    alert("Login Successful")
-  window.location.assign('./index.html');
-
-
+  if (userName === 'admin' && passWord === 'admin123') {
+    alert('Login Successful');
+          localStorage.setItem('loggedIn', 'true');
+window.location.assign('./index.html');
   } else {
-    alert("please try again")
-    return
+    alert('please try again');
+    return;
   }
-  // 3.1 true --alert > homepage 
-  // 3.1 false --alert > return 
-  
-
-
-
+  // 3.1 true --alert > homepage
+  // 3.1 false --alert > return
 });
-
