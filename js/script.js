@@ -113,6 +113,28 @@ const displayIssueModal = issue => {
     issue.assignee || 'Not assigned';
 
   document.getElementById('modal-priority').innerText = issue.priority;
+  
+
+
+const priorityElement = document.getElementById('modal-priority');
+
+const priorityColor = 
+  issue.priority === 'high'
+    ? 'bg-red-600'
+    : issue.priority === 'medium'
+      ? 'bg-yellow-500'
+      : 'bg-gray-400';
+
+  priorityElement.classList.remove(
+    'bg-red-600',
+    'bg-yellow-500',
+    'bg-gray-400',
+  );
+priorityElement.classList.add(priorityColor);
+
+
+
+
 
   // label new
 

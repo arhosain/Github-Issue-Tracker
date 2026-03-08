@@ -76,7 +76,7 @@
     <div class="flex gap-2 items-center">
       <div><img src="assets/Aperture.png" alt=""></div>
       <div>
-        <h4 class="text-2xl font-semibold"><span id="card-length">10</span>
+        <h4 class="text-2xl font-semibold"><span id="card-length">0</span>
           Issues</h4>
         <p>Track and manage your project issues</p>
       </div>
@@ -127,7 +127,7 @@
 
     <h3 id="modal-title" class="text-xl font-bold"></h3>
    
-    <div class="flex gap-2">
+    <div class="flex gap-2 flex-wrap">
       <p id="modal-status" class="px-2 bg-green-600 rounded-2xl text-white whitespace-nowrap text-center flex items-center" >
         
       </p>
@@ -142,8 +142,8 @@
     </div>
 
     <div class="labels-status flex gap-2">
-      <button id="label-status-1" class="bg-red-100 border rounded-3xl border-red-300 text-red-500 px-2 ">laalala</button>
-      <button id="label-status-2" class="bg-green-100 border rounded-3xl border-green-300 text-green-600 px-2  ">laalala</button>
+      <button id="label-status-1" class="bg-red-100 border rounded-3xl border-red-300 text-red-500 px-2 ">not added</button>
+      <button id="label-status-2" class="bg-green-100 border rounded-3xl border-green-300 text-green-600 px-2  ">not added</button>
     </div>
     <!-- <div> 
   <div id="modal-labels"  class="flex gap-2 mt-1 flex-wrap  "></div>
@@ -153,21 +153,21 @@
       
     </p>
 
-    <div class="flex gap-20 border p-3 bg-blue-50">
+    <div class="flex gap-20 rounded-lg  p-3 bg-blue-50">
       <div class="">
         <p class="font-semibold text-gray-400">Assignee:</p>
-        <p id="modal-assignee"></p>
+        <p id="modal-assignee" class="font-semibold"></p>
       </div>
       
       <div>
         <p class=" text-gray-400">Priority:</p>
-        <p id="modal-priority" class="bg-red-600 px-2 text-center rounded-3xl py-1 text-white"></p>
+        <p id="modal-priority" class=" px-2 text-center rounded-3xl py-1 text-white"></p>
       </div>
     </div>
 
     <div class="modal-action">
       <form method="dialog">
-        <button class="btn">Close</button>
+        <button class="btn btn-primary">Close</button>
       </form>
     </div>
 
