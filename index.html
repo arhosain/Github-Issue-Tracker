@@ -32,14 +32,14 @@
 <body>
   <header>
     <nav class="bg-base-100 shadow-sm">
-      <div class="navbar  max-w-10/11 mx-auto ">
+      <div class="navbar  max-w-10/11 mx-auto flex flex-wrap">
         <div class="flex-1 ">
           <a class="btn btn-ghost text-xl whitespace-nowrap"><i class="fa-brands fa-github text-3xl"></i> GitHub Issues Tracker</a>
         </div>
-        <div class="hidden sm:flex flex-row gap-2 ">
-          <input id="searchInput" type="text" placeholder="🔍 Search issues..." class="input input-bordered w-24 md:w-auto" />
+        <div class=" flex flex-row gap-2 mt-4 mb-2">
+          <input id="searchInput" type="text" placeholder="🔍 Search issues..." class="input input-bordered md:w-auto w-full" />
           <div>
-            <button onclick="searchIssues()" class="btn btn-primary">+ New Issue</button>
+            <button onclick="searchIssues()" class="btn btn-primary w-full whitespace-nowrap">+ New Issue</button>
           </div>
         </div>
       </div>
