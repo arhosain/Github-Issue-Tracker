@@ -1,9 +1,9 @@
-if (
-  !localStorage.getItem('loggedIn') &&
-  !window.location.pathname.includes('login.html')
-) {
+if (!localStorage.getItem('loggedIn')) {
   window.location.href = 'login.html';
 }
+
+
+
 
 let currentStatus = 'all';
 const loadIssues = event => {
@@ -217,29 +217,3 @@ window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('all-tab').click();
 });
 // loadIssues()
-
-// login page  ====================================
-
-document.getElementById('login-btn').addEventListener('click', function () {
-  // 1. get the username input
-  const userInput = document.getElementById('input-username');
-  const userName = userInput.value;
-  console.log(userName);
-
-  // 2. get the password
-  const passInput = document.getElementById('input-pass');
-
-  const passWord = passInput.value;
-  console.log(passWord);
-  // 3. match password and password
-  if (userName === 'admin' && passWord === 'admin123') {
-    alert('Login Successful');
-          localStorage.setItem('loggedIn', 'true');
-window.location.assign('./index.html');
-  } else {
-    alert('please try again');
-    return;
-  }
-  // 3.1 true --alert > homepage
-  // 3.1 false --alert > return
-});
