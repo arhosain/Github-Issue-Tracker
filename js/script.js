@@ -1,7 +1,9 @@
-if (!localStorage.getItem('loggedIn')) {
-  window.location.href = 'login.html';
+if (
+  !localStorage.getItem('loggedIn') &&
+  !window.location.href.includes('./login.html')
+) {
+  window.location.replace('./login.html');
 }
-
 
 
 
