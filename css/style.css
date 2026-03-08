@@ -1,3 +1,15 @@
 body{
    font-family: "Geist", sans-serif;
 }
+.red{
+ color: red;
+  background-color: rgb(255, 198, 198);
+}
+.yellow{
+  color: rgb(227, 151, 0);
+background-color: rgb(255, 254, 198);
+}
+.gray{
+  color: gray;
+background-color: rgb(229, 229, 229);
+}

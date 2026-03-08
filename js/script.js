@@ -162,13 +162,27 @@ const displayIssues = issues => {
     const btnDiv = document.createElement('div');
     const borderColor =
       issue.status === 'open' ? 'border-green-600' : 'border-purple-600';
+    const bgColor =
+      issue.status === 'open' ? 'bg-green-300' : 'bg-purple-300';
+    
+    
+   const priorityColor =
+     issue.priority === 'high'
+       ? 'red'
+       : issue.priority === 'medium'
+         ? 'yellow'
+         : 'gray'; 
+    const hideIcon = 
+    
+    
+    
     const helpWantedHidden = issue.labels[1] ? '' : 'hidden';
     btnDiv.innerHTML = `
     <div onclick="loadIssueDetails(${issue.id})" class=" issue-card shadow-lg cursor-pointer  border-t-4 rounded-xl ${borderColor}">
 <div class="p-4 space-y-3 ">
     <div class="flex justify-between">
-      <button class="btn rounded-full bg-green-300">-</button>
-      <button class=" bg-red-100 px-5  rounded-3xl text-[13px] text-red-500"> ${issue.priority.toUpperCase()}</button>
+      <button class="p-[6px] px-[9px] rounded-3xl ${bgColor}"><i class="fa-solid fa-circle-notch"></i> <i class="fa-regular fa-circle-check"></i></button>
+      <button class=" ${priorityColor} px-5  rounded-3xl text-[13px] text-red-500"> ${issue.priority.toUpperCase()}</button>
     </div>
     <h4 class="font-semibold text-xl">${issue.title}</h4>
     <p class="text-gray-500">${issue.description}</p>
