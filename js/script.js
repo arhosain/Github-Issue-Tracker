@@ -131,33 +131,65 @@ const displayIssueModal = issue => {
 
   // label new
 
-  const label1 = document.getElementById('label-status-1');
-  const label2 = document.getElementById('label-status-2');
+  // const label1 = document.getElementById('label-status-1');
+  // const label2 = document.getElementById('label-status-2');
 
+  // const label2Icon = document.getElementById('label-status-2-icon');
+  // label1.innerText = issue.labels[0];
+
+  // if (issue.labels[1]) {
+  //   label2.innerText = issue.labels[1];
+    
+  //   label2Icon.classList.remove("hidden");
+  //   label2.classList.remove('hidden');
+  // } else {
+  //   label2Icon.classList.add('hidden'); label2.classList.add('hidden');
+  // }
+
+
+
+const label1 = document.getElementById('label-status-1');
+const label2 = document.getElementById('label-status-2');
+const label2Icon = document.getElementById('label-status-2-icon');
+
+if (issue.labels && issue.labels.length > 0) {
   label1.innerText = issue.labels[0];
+  
+}
 
-  if (issue.labels[1]) {
-    label2.innerText = issue.labels[1];
-    label2.classList.remove('hidden');
-  } else {
-    label2.classList.add('hidden');
-  }
+if (issue.labels && issue.labels.length > 1) {
+  label2.innerText = issue.labels[1];
+  label2Icon.style.display = 'inline-block';
+ 
+  // label2Icon.classList.remove('hidden');
+  
+  label2.classList.remove('hidden');
+} else {
+  
+   label2Icon.style.display = 'none';
 
-  // labels
-  // const labelsContainer = document.getElementById('modal-labels');
-  // labelsContainer.innerHTML = '';
+  // label2Icon.classList.add('hidden');
+  label2.classList.add('hidden');
+}
 
-  // issue.labels.forEach(label => {
-  //   const span = document.createElement('span');
 
-  //   span.className = 'px-3 py-1 bg-red-200 rounded-full text-sm';
 
-  //   span.innerText = label;
 
-  //   labelsContainer.appendChild(span);
-  // });
 
-  // open modal
+
+
+
+
+
+
+
+
+  // test 
+ 
+// -------------
+
+
+
   document.getElementById('issue_modal').showModal();
 };
 
