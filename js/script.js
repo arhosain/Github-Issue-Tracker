@@ -209,7 +209,7 @@ const displayIssues = issues => {
     </div>
     <h4 class="font-semibold text-xl">${issue.title}</h4>
     <p class="text-gray-500">${issue.description}</p>
-    <div class="flex gap-3">
+    <div class="flex gap-3 flex-wrap">
       <button class="border border-red-300 bg-red-100 px-3 py-1.5 rounded-3xl text-red-500 text-[11px] whitespace-nowrap"><i class="fa-solid fa-bug"></i> ${issue.labels[0]}</button>
       <button class=" border border-green-400 bg-green-100 px-3 py-1.5 rounded-3xl text-green-600 text-[11px] ${helpWantedHidden}"><i class="fa-solid fa-life-ring"></i> ${issue.labels[1]}</button>
     </div>
@@ -232,3 +232,39 @@ window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('all-tab').click();
 });
 // loadIssues()
+
+
+
+
+
+
+
+// login page  ====================================
+
+document.getElementById('login-btn').addEventListener("click", function () {
+  
+  // 1. get the username input 
+  const userInput = document.getElementById('input-username');
+  const userName = userInput.value;
+  console.log(userName)
+
+  // 2. get the password
+  const passInput = document.getElementById("input-pass")
+
+  const passWord = passInput.value;
+  console.log(passWord)
+  // 3. match password and password
+  if (userName === "admin" && passWord === "admin123") {
+    alert("you are welcome")
+  } else {
+    alert("please try again")
+    return
+  }
+  // 3.1 true --alert > homepage 
+  // 3.1 false --alert > return 
+  
+
+
+
+});
+

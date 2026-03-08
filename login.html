@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <!-- google font geist  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+
+
+
+  <title>Login page | Github-Issue-Tracker</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!--tailwind + daisy ui  -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- font awesome  cdn -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+</head>
+<body class="">
+<section class="max-w-1120px] mx-auto flex justify-center mt-10 ">
+    <fieldset class="fieldset 
+    bg-white p-10 rounded-box border-base-300 w-100 sm:w-110 border shadow-xl 
+    ">
+       
+      
+        <div class="text-center space-y-4 mb-4"><i class="text-8xl fa-brands fa-github"></i>
+          <div>
+            <h3 class="text-2xl font-semibold">Github Issues Tracker</h3>
+            <p class="text-gray-500 ">Sign in to manage your issues</p>
+          </div>
+        </div>
+      
+
+
+      <!-- <legend class="fieldset-legend">Login</legend> -->
+    
+      <label class="label">Username</label>
+      <input id="input-username" type="text" class="input w-full" placeholder="Enter Username" />
+    <p class="text-blue-600">Default: admin</p>
+    
+      <label class="label mt-2">Password</label>
+      <input id="input-pass" type="password" class="input w-full" placeholder="Enter Password" />
+    <p class="text-blue-600">Default: admin123</p>
+      <button id="login-btn" class="btn btn-primary mt-4 rounded-lg">Login</button>
+   
+      <section class="text-center">
+        <div class="flex items-center my-4">
+          <div class="flex-grow border-t border-gray-300"></div>
+          <span class="mx-4 text-gray-500">OR</span>
+          <div class="flex-grow border-t border-gray-300"></div>
+        </div>
+        <p class="text-gray-400">Demo Credentials:</p>
+        <br>
+        <div class="p-4 bg-blue-50 rounded-md">
+
+        <p><span class="font-semibold">Username:</span> admin
+        <br>
+        <span class="font-semibold">Password:</span> admin123</p>
+        </div>
+      </section>
+
+
+
+
+    </fieldset>
+</section>
+  
+
+
+
+<script src="js/script.js"></script>
+</body>
+</html>
