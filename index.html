@@ -55,11 +55,11 @@
 
 
     <section class="tabs shadow-lg mt-10 p-5 border border-gray-200 rounded-lg flex gap-3">
-      <button id="all-tab" onclick="loadIssues(event)" class="btn  w-30 active ">All</button>
+      <button id="all-tab" onclick="loadIssues(event)" class="btn  w-20 active ">All</button>
       
-      <button onclick="loadIssuesByStatus('open', event)" class="btn  w-30 active">Open</button>
+      <button onclick="loadIssuesByStatus('open', event)" class="btn  w-25 active">Open</button>
 
-      <button onclick="loadIssuesByStatus('closed', event)" class="btn w-30 active">Closed</button>
+      <button onclick="loadIssuesByStatus('closed', event)" class="btn w-25 active">Closed</button>
 
     </section>
 
@@ -72,8 +72,8 @@
 
 
 <div class="mt-10 shadow-lg  border border-gray-200 rounded-lg">
-  <section class="border-b-2 border-gray-200 p-5 flex justify-between items-center">
-    <div class="flex gap-2 items-center">
+  <section class="border-b-2 border-gray-200 p-5 flex justify-between items-center flex-wrap">
+    <div class="flex gap-2 items-center ">
       <div><img src="assets/Aperture.png" alt=""></div>
       <div>
         <h4 class="text-2xl font-semibold"><span id="card-length">0</span>
@@ -141,7 +141,7 @@
       </p>
     </div>
 
-    <div class="labels-status flex gap-2 ">
+    <div class="labels-status flex gap-2 flex-wrap">
       <button id="label-status-1" class="bg-red-100 border rounded-3xl border-red-300 text-red-500 px-2   focus:outline-none focus:ring-0    ">not added</button>
       <button id="label-status-2" class="bg-green-100 border rounded-3xl border-green-300 text-green-600 px-2  ">not added</button>
     </div>
@@ -153,7 +153,7 @@
       
     </p>
 
-    <div class="flex gap-20 rounded-lg  p-3 bg-blue-50">
+    <div class="flex gap-5 rounded-lg flex-wrap p-3 bg-blue-50">
       <div class="">
         <p class="font-semibold text-gray-400">Assignee:</p>
         <p id="modal-assignee" class="font-semibold"></p>
