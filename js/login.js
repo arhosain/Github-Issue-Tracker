@@ -29,7 +29,7 @@ document.getElementById('login-btn').addEventListener('click', function () {
   const passWord = document.getElementById('input-pass').value;
 
   if (userName === 'admin' && passWord === 'admin123') {
-    localStorage.setItem('loggedIn', 'true');
+    sessionStorage.setItem('loggedIn', 'true');
     window.location.replace('index.html');
   } else {
     alert('please try again');
