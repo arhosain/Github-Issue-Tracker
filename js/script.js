@@ -195,7 +195,7 @@ const displayIssues = issues => {
       <button class=" ${priorityColor} px-5  rounded-3xl text-[13px] text-red-500"> ${issue.priority.toUpperCase()}</button>
     </div>
     <h4 class="font-semibold text-xl">${issue.title}</h4>
-    <p class="text-gray-500">${issue.description}</p>
+    <p class="text-gray-500">${issue.description.slice(0, 70)}...</p>
     <div class="flex gap-3 flex-wrap">
       <button class="border border-red-300 bg-red-100 px-3 py-1.5 rounded-3xl text-red-500 text-[11px] whitespace-nowrap"><i class="fa-solid fa-bug"></i> ${issue.labels[0]}</button>
       <button class=" border border-green-400 bg-green-100 px-3 py-1.5 rounded-3xl text-green-600 text-[11px] ${helpWantedHidden}"><i class="fa-solid fa-life-ring"></i> ${issue.labels[1]}</button>
