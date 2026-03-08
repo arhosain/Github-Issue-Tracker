@@ -255,7 +255,10 @@ document.getElementById('login-btn').addEventListener("click", function () {
   console.log(passWord)
   // 3. match password and password
   if (userName === "admin" && passWord === "admin123") {
-    alert("you are welcome")
+    alert("Login Successful")
+  window.location.assign('./index.html');
+
+
   } else {
     alert("please try again")
     return
