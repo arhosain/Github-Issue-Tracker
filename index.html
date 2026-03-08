@@ -12,7 +12,7 @@
 
 
 
-
+<link rel="shortcut icon" href="assets/github-logo.png" type="image/x-icon">
   <title>Github-Issue-Tracker
 </title>
 
@@ -28,6 +28,12 @@
   crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
+
+  <script>
+    if (!sessionStorage.getItem('loggedIn')) {
+      window.location.href = "login.html";
+    }
+  </script>
 </head>
 <body>
   <header>
