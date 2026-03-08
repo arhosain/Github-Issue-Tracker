@@ -172,7 +172,8 @@ const displayIssues = issues => {
        : issue.priority === 'medium'
          ? 'yellow'
          : 'gray'; 
-    const hideIcon = 
+  
+    
     
     
     
@@ -181,7 +182,7 @@ const displayIssues = issues => {
     <div onclick="loadIssueDetails(${issue.id})" class=" issue-card shadow-lg cursor-pointer  border-t-4 rounded-xl ${borderColor}">
 <div class="p-4 space-y-3 ">
     <div class="flex justify-between">
-      <button class="p-[6px] px-[9px] rounded-3xl ${bgColor}"><i class="fa-solid fa-circle-notch"></i> <i class="fa-regular fa-circle-check"></i></button>
+      <button class="p-[6px] px-[9px] rounded-3xl ${bgColor}"><i class="fa-solid fa-circle-notch "></i> </button>
       <button class=" ${priorityColor} px-5  rounded-3xl text-[13px] text-red-500"> ${issue.priority.toUpperCase()}</button>
     </div>
     <h4 class="font-semibold text-xl">${issue.title}</h4>
